@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import {ref, watch} from 'vue'
-import {useTestStore} from '@/stores/test'
+import { ref, watch } from 'vue'
+import { useTestStore } from '@/stores/test'
 
 const store = useTestStore()
 
@@ -25,23 +25,22 @@ const update = () => {
 const retry = () => {
     store.$reset()
 }
-watch(() => store.title, (val) => {
-    title.value = val
-})
+watch(
+    () => store.title,
+    (val) => {
+        title.value = val
+    }
+)
 const toPage = () => {
     console.log('to index >')
     uni.navigateTo({
-        url: '/pages/index/index'
+        url: '/pages/index/index',
     })
 }
-
-
 </script>
 
 <style lang="scss" setup>
-
 .content {
     @apply flex flex-col items-center;
 }
-
 </style>
